@@ -1,0 +1,54 @@
+Evil-ish Hangman
+
+	Done:
+	MYSTRING.C
+	MYSTRINGTESTS.C
+	DICTIONARY.C
+	ASSOCARRAY.C
+	HANGMAN.C (HUGE memory leaks! BUT it seems to work!!!)
+
+	Notes:
+	Mystring.c 
+	- MEMORY LEAKS: None.
+	- Passes all 18 of my tests
+	
+	Dictionary.c
+	- MEMORY LEAKS: None.
+	- Has functions to get which ever sized vector of mystring that you want.
+	
+	Assocarray.c
+	- MEMORY LEAKS: None.
+	- It seems to sort the dictionary file, and I can grab the node with the
+	  largest generic_vector.
+	
+	_Hangman.c 
+	- Asks user for basic information about the game
+	- Ensures user input is valid.
+	- Massive memory leaks ATM.
+
+	ISSUES:
+	- Warnings about "implicit declaration" of two functions in hangman.c. After I
+	  added additional declarations of those functions, they went away. Not sure if
+	  that is the right thing to do or not. Functions are found in dictionary.c,
+	  perhaps that is why - hangman.c can't see them directly?
+
+	NOTES for DICTIONARY.C
+	In order to get the vector of mystrings to work, I had to put some functions,
+	such as mystring assignment and mystring destroyer, into the mystring.c file.
+	gcc dictionary_tests.c dictionary.c generic_vector.c mystring.c -o test
+	Also, in a related note, to get the vector a vector part to work I had to do
+	the same thing, except I put myvector_assignment and myvector_destroyer in
+	the generic_vector.c file. 
+	
+	Made it less straight forward, but it seems to work!
+	
+	MAKEFILE:
+		- Added a make clean command, so I can force a recompile. Helpful with some random
+	  bugs that seem to appear and disappear.
+	- Added a make all, so it compiles everything at once. You can simply type
+	  make <option>
+	  to make one of the options, ie only assocarrayTest or only Hangman, etc.
+	
+	TESTS FILES:
+	** Hangman.c **
+	used MAKEFILE.
